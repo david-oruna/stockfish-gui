@@ -13,15 +13,23 @@
     body{
         display: grid;
         place-items: center;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
     }
         #board {
             width: 400px;
             margin: 20px auto;
             overflow: hidden;
-            background-size: cover;
-            margin: 0;
-        padding: 0;
+           touch-action: none; 
         }
+
+        @media screen and (max-width: 480px) {
+        #board {
+            width: 90%; /* Adjust width for smaller screens */
+            margin: 10px auto; /* Reduce margin */
+        }
+        } 
     </style>
 </head>
 <body>

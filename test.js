@@ -10,6 +10,11 @@ var $pgn = $('#pgn')
 var wasmSupported = typeof WebAssembly === 'object' && WebAssembly.validate(Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00));
 var stockfish = new Worker(wasmSupported ? 'stockfish.wasm.js' : 'stockfish.js');
 
+document.getElementById('board').addEventListener('touchmove', function(e) {
+  e.preventDefault(); // Prevent the default scrolling behavior
+}, { passive: false });
+
+
 stockfish.addEventListener('message', function(e) {
   if (e.data.startsWith('bestmove')) {
     var bestMove = e.data.split(' ')[1];
