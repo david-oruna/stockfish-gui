@@ -45,7 +45,7 @@ function onDrop (source, target) {
   updateStatus()
 
   stockfish.postMessage('position fen ' + game.fen());
-  stockfish.postMessage('go depth 10');
+  stockfish.postMessage('go depth 15');
 
 }
 
